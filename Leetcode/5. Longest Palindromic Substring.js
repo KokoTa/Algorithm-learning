@@ -34,7 +34,8 @@ function Manacher(s) {
   for (var i=1, len=str.length; i<len; i++) {
   	// 如果当前索引小于最右端，因为回文对称，所以可以对称赋值
   	// 比如对称轴为dp[2]，那么就可以让dp[1] = dp[3]，从而避免从头推断增加性能损耗
-  	// 注意Math.min的作用，假设dp[1]的回文半径很大(为10)，而dp[3]是倒数第二个值的话，dp[3]的半径不可能为10，所以我们要取最小值
+  	// 注意Math.min和maxn-i的作用，比如"babadada"，第一个a的回文半径是2，第二个a的回文半径是1，1是axn-i得来的
+  	// 虽然两个a以第二个b为对称轴，但是他们的回文半径是不同的
     if (i < maxn) { 
     	console.log(true, 2*idx - i, dp[2*idx - i], maxn - i);
     	dp[i] = Math.min(dp[2*idx - i], maxn - i);
