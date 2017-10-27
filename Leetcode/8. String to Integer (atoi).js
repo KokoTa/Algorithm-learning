@@ -13,3 +13,5 @@ var myAtoi = function(str) {
 	if(num > MAX) return MAX;
 	return num;
 };
+
+console.log(myAtoi("-12A"))
