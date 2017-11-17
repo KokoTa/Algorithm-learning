@@ -1,4 +1,5 @@
 // 二分查找
+// 复杂度： log2n
 
 function binary_search(list, item) {
 	var low = 0; // 范围左边界
