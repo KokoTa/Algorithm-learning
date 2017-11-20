@@ -16,5 +16,10 @@ function insertionSort(arr) {
     return arr;
 }
 
-// test
-console.log(insertionSort([5, 3, 1, 2, 4]));
+if (/06/.test(process.argv[1])) { // 防止执行桶排序时输出插入排序的结果
+    // test
+    console.log(insertionSort([5, 3, 1, 2, 4]));
+}
+
+
+module.exports = insertionSort;
