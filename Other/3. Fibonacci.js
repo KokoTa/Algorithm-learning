@@ -22,19 +22,15 @@ console.log(factorial2(10));
 
 // 斐波那契显示
 function showFibo(n) {
-	if(n == 1) return [1];
-	if(n == 2) return [1, 1];
-	if(n > 2) {
-		var arr = [1, 1];
-		var a = 1, b = 1, c = 2;
-		for(var i = 0; i < n; i++) {
-			arr.push(c);
-			a = b;
-			b = c;
-			c = a + b;
-		} 
-		return arr;
+	var arr = [];
+	for (var i=0; i<n; i++) {
+		if (arr.length < 2) {
+			arr.push(1);
+		} else {
+			arr.push(arr[i - 1] + arr[i - 2]);
+		}
 	}
+	return arr;
 }
 // test
 console.log(showFibo(10))

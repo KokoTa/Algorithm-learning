@@ -1,26 +1,15 @@
-function getSmallest(array) {
-    var smallest = array[0];
-    var len =  array.length;
-    var index = 0;
-    for(let i=0; i<len; i++) {
-        if(smallest > array[i]) {
-            smallest = array[i];
-            index = i;
+
+function sort(arr) {
+    for(var i=0; i<arr.length-1; i++) {
+        for(var j=0; j<arr.length-1-i; j++) {
+            if(arr[j] > arr[j+1]) {
+                var temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
         }
     }
-    return index;
+    return arr;
 }
 
-function order(array) {
-    var len = array.length;
-    var newArr = [];
-
-    for (let i = 0; i < len; i++) {
-        var smallestIndex = getSmallest(array);
-        newArr.push(array.splice(smallestIndex, 1)[0]);
-    }
-
-    return newArr;
-}
-
-console.log(order([4,7,8,5,4,2,4,66,78]));
+console.log(sort([5,4,3,2,1]))
