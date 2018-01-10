@@ -1,15 +1,19 @@
+function getMostGold(n, w, g, p) {
+    let preResult = [];
+    let result = [];
 
-function sort(arr) {
-    for(var i=0; i<arr.length-1; i++) {
-        for(var j=0; j<arr.length-1-i; j++) {
-            if(arr[j] > arr[j+1]) {
-                var temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-            }
+    for(let i = 0; i <= n; i++) {
+        if(i < p[0]) {
+            preResult[i] = 0;
+        } else {
+            preResult[i] = g[0];
         }
     }
-    return arr;
+
+    console.log(preResult);
 }
 
-console.log(sort([5,4,3,2,1]))
+let g = [400, 500, 200, 300, 350];
+let p = [5, 5, 3, 4, 3];
+
+getMostGold(5, 10, g, p);

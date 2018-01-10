@@ -167,7 +167,28 @@ console.log(decimalToBinary(3));
 console.log(decimalToBinary(12));
 console.log(decimalToBinary(1000));
 
-// 12.判断是否为2的指数
+// 12.二进制转换2
+// 通过循环除2将得数推入数组后再取出进行字符串拼接
+function decimalToBinary2(num) {
+    let arr = [];
+    let rem;
+    let bString = '';
+    while (num > 0) {
+        rem = num % 2;
+        arr.push(rem);
+        num = Math.floor(num / 2);
+    }
+    while (arr.length) {
+        bString += arr.pop().toString();
+    }
+    return bString;
+}
+
+console.log(decimalToBinary2(3));
+console.log(decimalToBinary2(12));
+console.log(decimalToBinary2(1000));
+
+// 13.判断是否为2的指数
 // 利用&运算符
 // `&` uses the bitwise n.
 // In the case of number = 4; the expression would be identical to:
