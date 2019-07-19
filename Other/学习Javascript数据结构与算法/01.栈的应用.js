@@ -33,7 +33,7 @@ function divideBy2(num, base) {
     result += digits[stack.pop()].toString();
   }
 
-  return result;  
+  return result;
 }
 
 console.log(divideBy2(100, 2));
@@ -74,7 +74,7 @@ function parenthesesChecker(str) {
   }
 
   if (balance && stack.isEmpty()) return true;  // 这里判断栈是否空是因为有可能匹配完后栈还有残留，说明不平衡，比如 '[()'
-  
+
   return false;
 }
 

@@ -6,5 +6,4 @@ console.log(
 [...Array(Math.pow(2, 12))]
 	.map((x, i) => i)
 	.filter(x => x.toString(2).match(/1111/)).length / Math.pow(2, 12)
-	
 );
