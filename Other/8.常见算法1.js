@@ -1,4 +1,4 @@
-// 01.找出整型数组中乘积最大的三个数
+// *01.找出整型数组中乘积最大的三个数
 // 最大值的情况只有两种：min1 * min2 * max1 || max1 * max2 * max3
 function maxThreeInt(array) {
     var sortedArr = array.sort((a, b) => a - b);
@@ -106,7 +106,7 @@ console.log(productExceptSelf([0, 0, 0, 2]));
 // 简单粗暴法
 function intersection(arr1, arr2) {
     var arr = arr1.filter((item, index) => {
-        return arr2.indexOf(item) > -1;      
+        return arr2.indexOf(item) > -1;
     });
     return Array.from(new Set(arr));
 }
@@ -145,7 +145,7 @@ function isBalanced(str) {
     if (str.length === 0) return true;
     var left = str.match(/\{/g);
     var right = str.match(/\}/g);
-    return left.length === right.length; 
+    return left.length === right.length;
 }
 
 console.log(isBalanced("{{}}{}{}"));
@@ -206,3 +206,39 @@ console.log(isPowerOfTwo(4));
 console.log(isPowerOfTwo(1));
 console.log(isPowerOfTwo(0));
 console.log(isPowerOfTwo(-1));
+
+// 14.getElementById 的实现
+// 方法一：通过 API 深度遍历
+function nextElement(node) {
+  if (node.children.length) {
+    return node.children[0]
+  }
+  if (node.nextElementSibling) {
+    return node.nextElementSibling
+  }
+  while (node.parentNode) {
+    if (node.parentNode.nextElementSibling) {
+      return node.parentNode.nextElementSibling
+    }
+    node = node.parentNode
+  }
+  return null
+}
+
+function getElementById(node, id) {
+  while (node) {
+    if (node.id === id) return node
+    node = nextElement(node)
+  }
+  return null
+}
+// 方法二：通过算法深度遍历
+function getElementById2(node, id) {
+  if (!node) return null
+  if (node.id === id) return node
+  for (let i = 0; i < node.children.length; i++) {
+    const found = getElementById2(node.children[i], id)
+    if (found) return found
+  }
+  return null
+}

@@ -23,9 +23,9 @@ function path_to_tree(path) {
 }
 
 function merge_tree(forest, tree) {
-	let tree2 = forest.find(x => x.name === tree.name) // 如果name相同，返回name所在的这个对象，否则返回undefined
+  let tree2 = forest.find(x => x.name === tree.name) // 如果name相同，返回name所在的这个对象，否则返回undefined
 	if(!tree2) {
-		forest.push(tree)
+    forest.push(tree)
 	} else {
 		tree.children.forEach(node => {
 			merge_tree(tree2.children, node) // 在总树中寻找欲合并树的节点
@@ -43,4 +43,4 @@ function parseData(strData) {
 		}, [])
 }
 
-console.log(parseData(strData);)
+console.log(parseData(strData))
